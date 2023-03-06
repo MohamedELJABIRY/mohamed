@@ -44,13 +44,13 @@
 	<nav class="site-nav">
 		<div class="container">
 			<div class="site-navigation">
-				<a href="index.html" class="logo m-0">Offres.com <span class="text-primary"></span></a>
+				<a href="/home" class="logo m-0">Offres.com <span class="text-primary"></span></a>
 
 				<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
 					<li class="active"><a href="/home">Home</a></li>
-					<li><a href="/contact">Contact Us</a></li> 
+					<li><a href="/contact">Contact</a></li> 
 					<li class="has-children">
-						<a href="">Connection</a>
+						<a href="">Connexion</a>
 						<ul class="dropdown">
 							<li><a href="/login">Condidat</a></li>
 							<li><a href="#">Entreprise</a></li>
@@ -76,8 +76,9 @@
 				<div class="row">
 					<div class="col-md-6 col-lg-4">
 						<div class="widget">
-							<h3 class="heading">About Tour</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3 class="heading">About Offres</h3>
+							<p>Offres.com est le premier moteur
+de recherche d’emploi au monde</p>
 						</div>
 						<div class="widget">
 							<ul class="list-unstyled social">
@@ -116,8 +117,8 @@
 						<div class="widget">
 							<h3 class="heading">Contact</h3>
 							<ul class="list-unstyled quick-info links">
-								<li class="email"><a href="#">mail@example.com</a></li>
-								<li class="phone"><a href="#">+1 222 212 3819</a></li>
+								<li class="email"><a href="#">Offres@gmail.com</a></li>
+								<li class="phone"><a href="#">+212 622 212 381</a></li>
 								<li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
 							</ul>
 						</div>
@@ -132,8 +133,7 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-md-8 mb-3 mb-md-0 mx-auto">
-						<p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co" class="link-highlight">Untree.co</a> <!-- License information: https://untree.co/license/ -->Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a>
-						</p>
+						<p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Tous droits réservés. <!--&mdash; License information: https://untree.co/license/ --></p>
 					</div>
 					
 				</div>
@@ -148,18 +148,18 @@
 		</div>
 	</div>
 
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.fancybox.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/moment.min.js"></script>
-	<script src="js/daterangepicker.js"></script>
+	<script src="{{url('js/jquery-3.4.1.min.js')}}"></script>
+	<script src="{{url('js/popper.min.js')}}"></script>
+	<script src="{{url('js/bootstrap.min.js')}}"></script>
+	<script src="{{url('js/owl.carousel.min.js')}}"></script>
+	<script src="{{url('js/jquery.animateNumber.min.js')}}"></script>
+	<script src="{{url('js/jquery.waypoints.min.js')}}"></script>
+	<script src="{{url('js/jquery.fancybox.min.js')}}"></script>
+	<script src="{{url('js/aos.js')}}"></script>
+	<script src="{{url('js/moment.min.js')}}"></script>
+	<script src="{{url('js/daterangepicker.js')}}"></script>
 
-	<script src="js/typed.js"></script>
+	<script src="{{url('js/typed.js')}}"></script>
 	<script>
 		$(function() {
 			var slides = $('.slides'),
@@ -170,7 +170,7 @@
 			})
 
 			var typed = new Typed('.typed-words', {
-				strings: ["San Francisco."," Paris."," New Zealand.", " Maui.", " London."],
+				strings: ["Casablanca.","Rabat.","Tanger.","..."],
 				typeSpeed: 80,
 				backSpeed: 80,
 				backDelay: 4000,
@@ -188,7 +188,7 @@
 		})
 	</script>
 
-	<script src="js/custom.js"></script>
+	<script src="{{url('js/custom.js')}}"></script>
 
 </body>
 

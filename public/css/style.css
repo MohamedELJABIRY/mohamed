@@ -85,7 +85,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .form-control, .custom-select {
   border: 2px solid #e9ecef;
   font-size: 16px;
-  height: 45px; }
+  height: 40px; }
   .form-control:active, .form-control:focus, .custom-select:active, .custom-select:focus {
     border-color: #1A374D;
     -webkit-box-shadow: none;
@@ -163,7 +163,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   position: absolute;
   top: 0;
   z-index: 9;
-  width: 100%; }
+  width: 100%; 
+  position: fixed;
+  background-color: #6998AB;
+}
 
 .site-nav {
   padding-top: 20px;
@@ -554,10 +557,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   .hero.hero-inner {
     padding: 9rem 0 7rem 0;
     margin-bottom: auto;
-    background: #1A374D; }
+    background: #6998AB; }
   .hero h1 {
     color: #ffffff;
-    font-size: 60px; }
+    font-size: 50px; }
     @media (max-width: 991.98px) {
       .hero h1 {
         font-size: 45px; } }
