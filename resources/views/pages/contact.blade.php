@@ -1,5 +1,5 @@
 @extends('./layout.layout')
-@section('content')
+@section('contente')
 <div class="hero hero-inner">
     <div class="container">
       <div class="row align-items-center">

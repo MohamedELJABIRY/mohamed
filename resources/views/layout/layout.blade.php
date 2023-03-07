@@ -16,16 +16,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{url('css/owl.carousel.min.css')}}">
-	<link rel="stylesheet" href="{{url('css/owl.theme.default.min.css')}}">
-	<link rel="stylesheet" href="{{url('css/jquery.fancybox.min.css')}}">
-	<link rel="stylesheet" href="{{url('fonts/icomoon/style.css')}}">
-	<link rel="stylesheet" href="{{url('fonts/flaticon/font/flaticon.css')}}">
-	<link rel="stylesheet" href="{{url('css/daterangepicker.css')}}">
-	<link rel="stylesheet" href="{{url('css/aos.css')}}">
-	<link rel="stylesheet" href="{{url('css/style.css')}}">
-
+	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+	<link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
+	<link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
+	<link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
+	<link rel="stylesheet" href="{{asset('css/daterangepicker.css')}}">
+	<link rel="stylesheet" href="{{asset('css/aos.css')}}">
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	<title>Offres</title>
 </head>
 
@@ -40,35 +40,63 @@
 		</div>
 		<div class="site-mobile-menu-body"></div>
 	</div>
-
 	<nav class="site-nav">
 		<div class="container">
 			<div class="site-navigation">
-				<a href="/home" class="logo m-0">Offres.com <span class="text-primary"></span></a>
+				<a href="/accueil" class="logo m-0">Offres.com <span class="text-primary"></span></a>
 
 				<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-					<li class="active"><a href="/home">Home</a></li>
+					<li class="active"><a href="/accueil">Home</a></li>
 					<li><a href="/contact">Contact</a></li> 
-					<li class="has-children">
-						<a href="">Connexion</a>
-						<ul class="dropdown">
-							<li><a href="/login">Condidat</a></li>
-							<li><a href="#">Entreprise</a></li>
-						</ul>
-					</li>
+							@guest
+								@if (Route::has('login'))
+									<li class="has-children">
+										<a href="">Connexion</a>
+										<ul class="dropdown">
+											<li><a href="{{ route('login') }}">Condidat</a></li>
+											<li><a href="#">Entreprise</a></li>
+										</ul>
+									</li>
+								@endif
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        	@else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/accueil" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <!-- {{ Auth::user()->name }} -->
+									<!-- <i class="bi bi-person-fill"></i> -->
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+										<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+									</svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end " id="dropdown" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Deconnexion') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+							
+                        @endguest
 				</ul>
-
+				
 				<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
 					<span></span>
 				</a>
-
 			</div>
 		</div>
 	</nav>
 
 
 	<!-- home -->
-    @yield('content')
+    @yield('contente')
 
 	<div class="site-footer">
 		<div class="inner first">
@@ -78,7 +106,7 @@
 						<div class="widget">
 							<h3 class="heading">About Offres</h3>
 							<p>Offres.com est le premier moteur
-de recherche d’emploi au monde</p>
+								de recherche d’emploi au monde</p>
 						</div>
 						<div class="widget">
 							<ul class="list-unstyled social">
@@ -148,18 +176,18 @@ de recherche d’emploi au monde</p>
 		</div>
 	</div>
 
-	<script src="{{url('js/jquery-3.4.1.min.js')}}"></script>
-	<script src="{{url('js/popper.min.js')}}"></script>
-	<script src="{{url('js/bootstrap.min.js')}}"></script>
-	<script src="{{url('js/owl.carousel.min.js')}}"></script>
-	<script src="{{url('js/jquery.animateNumber.min.js')}}"></script>
-	<script src="{{url('js/jquery.waypoints.min.js')}}"></script>
-	<script src="{{url('js/jquery.fancybox.min.js')}}"></script>
-	<script src="{{url('js/aos.js')}}"></script>
-	<script src="{{url('js/moment.min.js')}}"></script>
-	<script src="{{url('js/daterangepicker.js')}}"></script>
+	<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+		<script src="{{asset('js/popper.min.js')}}"></script>
+		<script src="{{asset('js/bootstrap.min.js')}}"></script>
+		<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+		<script src="{{asset('js/jquery.animateNumber.min.js')}}"></script>
+		<script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
+		<script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+		<script src="{{asset('js/aos.js')}}"></script>
+		<script src="{{asset('js/moment.min.js')}}"></script>
+	<script src="{{asset('js/daterangepicker.js')}}"></script>
 
-	<script src="{{url('js/typed.js')}}"></script>
+	<script src="{{asset('js/typed.js')}}"></script>
 	<script>
 		$(function() {
 			var slides = $('.slides'),
@@ -188,7 +216,7 @@ de recherche d’emploi au monde</p>
 		})
 	</script>
 
-	<script src="{{url('js/custom.js')}}"></script>
+	<script src="{{asset('js/custom.js')}}"></script>
 
 </body>
 

@@ -1,13 +1,13 @@
 @extends('./layout.layout')
-@section('content')
+@section('contente')
 	<div class="hero">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-12">
 					<div class="intro-wrap">
-						<h1 class="mb-5"><span class="d-block">Trouvez votre emploi </span><span class="typed-words">dans</span></h1>
+						<h1 class="mb-5"><span class="d-block">Trouvez votre offres d'emploi en Offres.com </span> dans <span class="typed-words"></span></h1>
 						<div class="row">
-							<div class="col-12">
+							<div class="col-12"  >
 								<form class="form">
 									<div class="row mb-2">
 										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
@@ -162,7 +162,7 @@
 
 
 
-	<div class="untree_co-section">
+	<!-- <div class="untree_co-section">
 		<div class="container">
 			<div class="row text-center justify-content-center mb-5">
 				<div class="col-lg-7"><h2 class="section-title text-center">Popular Destination</h2></div>
@@ -234,10 +234,10 @@
 			</div>
 
 		</div>
-	</div>
+	</div> -->
 
 
-	<div class="untree_co-section testimonial-section mt-5">
+	<!-- <div class="untree_co-section testimonial-section mt-5">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-7 text-center">
@@ -279,10 +279,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
-	<div class="untree_co-section">
+	<!-- <div class="untree_co-section">
 		<div class="container">
 			<div class="row justify-content-center text-center mb-5">
 				<div class="col-lg-6">
@@ -371,7 +371,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- <div class="untree_co-section">
 		<div class="container">

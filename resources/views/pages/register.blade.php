@@ -1,5 +1,5 @@
 @extends('./layout.layout')
-@section('content')
+@section('contente')
 <div class="hero hero-inner">
 <div class="container">
     <div class="row align-items-center">
@@ -18,17 +18,17 @@
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-8 align-item-center">
         <div class="border border">
-          <h3 class="bg-gray p-4">Register Now</h3>
+          <h3 class="bg-gray p-4">Créer un compte</h3>
           <form action="#">
             <fieldset class="p-4">
               <input class="form-control mb-3" type="email" placeholder="Email*" required>
-              <input class="form-control mb-3" type="password" placeholder="Password*" required>
-              <input class="form-control mb-3" type="password" placeholder="Confirm Password*" required>
-              <div class="loggedin-forgot d-inline-flex my-3">
+              <input class="form-control mb-3" type="password" placeholder="Mot de passe*" required>
+              <input class="form-control mb-3" type="password" placeholder="Confirmer mot de passe*" required>
+              <!-- <div class="loggedin-forgot d-inline-flex my-3">
                 <input type="checkbox" id="registering" class="mt-1">
                 <label for="registering" class="px-2">By registering, you accept our <a class="text-primary font-weight-bold" href="terms-condition.html">Terms & Conditions</a></label>
-              </div>
-              <button type="submit" class="btn btn-primary font-weight-bold mt-3">Register Now</button>
+              </div> -->
+              <button type="submit" class="btn btn-primary font-weight-bold mt-3">Valider</button>
             </fieldset>
           </form>
         </div>
