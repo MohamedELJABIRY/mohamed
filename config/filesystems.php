@@ -43,6 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'offres' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/offres/',
+            'url' => env('APP_URL').'/pulic',
+            'visibility' => 'public' ,
+        ],
 
         's3' => [
             'driver' => 's3',

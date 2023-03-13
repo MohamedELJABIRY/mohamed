@@ -22,6 +22,7 @@ class User extends Authenticatable
         'ville',
         'tel',
         'email',
+        'type',
         'password',
     ];
 
@@ -43,4 +44,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function iscompagne(){
+        $type=$this->type;
+        if($type){
+            return true;
+        }
+        return  false;
+    }
+
+    public function company(){
+        return $this->hasMany(company::class);
+    }
 }
+

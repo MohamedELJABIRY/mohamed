@@ -62,12 +62,6 @@
                               {{ __('mot de passe oulié?') }}
                           </a>
                       @endif
-
-                      @if (Route::has('password.request'))
-                          <a class="mt-3 d-block text-primary" href="{{ route('register') }}">
-                              {{ __('Créer un compte') }}
-                          </a>
-                      @endif
                   </div>
               </div>
             </fieldset>

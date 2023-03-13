@@ -18,7 +18,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="">
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -52,7 +51,6 @@
                             <label for="tel" class="col-md-4 col-form-label text-md-end">{{ __('numéro de téléphone') }}</label>
                             <div class="col-md-6">
                                 <input id="tel" type="number" class="form-control @error('tel') is-invalid @enderror" name="tel" placeholder="téléphone" value="{{ old('tel') }}" required autocomplete="tel" min="0" autofocus>
-
                                 @error('tel')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -60,9 +58,22 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('type') }}</label>
+                             <div class="col-md-6">
+                            <select class="form-control @error('type') is-invalid @enderror" value="{{ old('type') }}" name="type" aria-label="Default select example" required autocomplete="type" autofocus>
+                                <option >company</option>
+                                <option >user</option>
+                            </select>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror</div>
+                        </div>
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')

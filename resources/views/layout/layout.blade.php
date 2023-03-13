@@ -1,11 +1,6 @@
-<!-- /*
-* Template Name: Tour
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-<!doctype html>
+<!Doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,175 +25,167 @@
 </head>
 
 <body>
-
-
-	<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-			<div class="site-mobile-menu-close">
-				<span class="icofont-close js-menu-toggle"></span>
+	<header>
+		<div class="site-mobile-menu site-navbar-target">
+			<div class="site-mobile-menu-header">
+				<div class="site-mobile-menu-close">
+					<span class="icofont-close js-menu-toggle"></span>
+				</div>
 			</div>
+			<div class="site-mobile-menu-body"></div>
 		</div>
-		<div class="site-mobile-menu-body"></div>
-	</div>
-	<nav class="site-nav">
-		<div class="container">
-			<div class="site-navigation">
-				<a href="/accueil" class="logo m-0">Offres.com <span class="text-primary"></span></a>
+		<nav class="site-nav">
+			<div class="container">
+				<div class="site-navigation">
+					<a href="/" class="logo m-0">E-Recrutement<span class="text-primary"></span></a>
+					<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
+						<li class="active"><a href="/">Home</a></li>
+						<li class="active"><a href="/offre">Offre d'emploi</a></li>
+						<li><a href="/contact" class="active">Contact</a></li>
+						@guest
+						@if (Route::has('login'))
+						<li class="">
+							<a href="{{ route('login') }}">Connexion</a>
+						</li>
+						@endif
+						@if (Route::has('register'))
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('register') }}">S'inscrire</a>
+						</li>
 
-				<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-					<li class="active"><a href="/accueil">Home</a></li>
-					<li><a href="/contact">Contact</a></li> 
-							@guest
-								@if (Route::has('login'))
-									<li class="has-children">
-										<a href="">Connexion</a>
-										<ul class="dropdown">
-											<li><a href="{{ route('login') }}">Condidat</a></li>
-											<li><a href="#">Entreprise</a></li>
-										</ul>
-									</li>
-								@endif
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        	@else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/accueil" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <!-- {{ Auth::user()->name }} -->
-									<!-- <i class="bi bi-person-fill"></i> -->
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-										<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-									</svg>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end " id="dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+						@endif
+						@else
+						<li class="nav-item dropdown">
+							<a id="navbarDropdown" class="" href="/accueil" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+									<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+								</svg>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end " id="dropdown" aria-labelledby="navbarDropdown">
+
+								<a class="dropdown-item" href="/profil/">{{ __('profile') }}</a>
+								<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Deconnexion') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-							
-                        @endguest
-				</ul>
-				
-				<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
-					<span></span>
-				</a>
+									{{ __('Déconnexion') }}
+								</a>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+									@csrf
+								</form>
+							</div>
+						</li>
+						@endguest
+					</ul>
+					<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+						<span></span>
+					</a>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
+	</header>
 
+	@yield('contente')
 
-	<!-- home -->
-    @yield('contente')
-
-	<div class="site-footer">
-		<div class="inner first">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-lg-4">
-						<div class="widget">
-							<h3 class="heading">About Offres</h3>
-							<p>Offres.com est le premier moteur
-								de recherche d’emploi au monde</p>
+	<footer class="mt-5">
+		<div class="site-footer">
+			<div class="inner first">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-4">
+							<div class="widget">
+								<h3 class="heading">About Offres</h3>
+								<p>Offres.com est le premier moteur
+									de recherche d’emploi au monde</p>
+							</div>
+							<div class="widget">
+								<ul class="list-unstyled social">
+									<li><a href="#"><span class="icon-twitter"></span></a></li>
+									<li><a href="#"><span class="icon-instagram"></span></a></li>
+									<li><a href="#"><span class="icon-facebook"></span></a></li>
+									<li><a href="#"><span class="icon-linkedin"></span></a></li>
+									<li><a href="#"><span class="icon-dribbble"></span></a></li>
+									<li><a href="#"><span class="icon-pinterest"></span></a></li>
+									<li><a href="#"><span class="icon-apple"></span></a></li>
+									<li><a href="#"><span class="icon-google"></span></a></li>
+								</ul>
+							</div>
 						</div>
-						<div class="widget">
-							<ul class="list-unstyled social">
-								<li><a href="#"><span class="icon-twitter"></span></a></li>
-								<li><a href="#"><span class="icon-instagram"></span></a></li>
-								<li><a href="#"><span class="icon-facebook"></span></a></li>
-								<li><a href="#"><span class="icon-linkedin"></span></a></li>
-								<li><a href="#"><span class="icon-dribbble"></span></a></li>
-								<li><a href="#"><span class="icon-pinterest"></span></a></li>
-								<li><a href="#"><span class="icon-apple"></span></a></li>
-								<li><a href="#"><span class="icon-google"></span></a></li>
-							</ul>
+						<div class="col-md-6 col-lg-2 pl-lg-5">
+							<div class="widget">
+								<h3 class="heading">Pages</h3>
+								<ul class="links list-unstyled">
+									<li><a href="#">Blog</a></li>
+									<li><a href="#">About</a></li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-6 col-lg-2 pl-lg-5">
-						<div class="widget">
-							<h3 class="heading">Pages</h3>
-							<ul class="links list-unstyled">
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">About</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
+						<div class="col-md-6 col-lg-2">
+							<div class="widget">
+								<h3 class="heading">Resources</h3>
+								<ul class="links list-unstyled">
+									<li><a href="#">Blog</a></li>
+									<li><a href="#">About</a></li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-6 col-lg-2">
-						<div class="widget">
-							<h3 class="heading">Resources</h3>
-							<ul class="links list-unstyled">
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">About</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-4">
-						<div class="widget">
-							<h3 class="heading">Contact</h3>
-							<ul class="list-unstyled quick-info links">
-								<li class="email"><a href="#">Offres@gmail.com</a></li>
-								<li class="phone"><a href="#">+212 622 212 381</a></li>
-								<li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
-							</ul>
+						<div class="col-md-6 col-lg-4">
+							<div class="widget">
+								<h3 class="heading">Contact</h3>
+								<ul class="list-unstyled quick-info links">
+									<li class="email"><a href="#">Offres@gmail.com</a></li>
+									<li class="phone"><a href="#">+212 622 212 381</a></li>
+									<li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
 
 
-		<div class="inner dark">
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-8 mb-3 mb-md-0 mx-auto">
-						<p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Tous droits réservés. <!--&mdash; License information: https://untree.co/license/ --></p>
+			<div class="inner dark">
+				<div class="container">
+					<div class="row text-center">
+						<div class="col-md-8 mb-3 mb-md-0 mx-auto">
+							<p>Copyright &copy;<script>
+									document.write(new Date().getFullYear());
+								</script>. Tous droits réservés. <!--&mdash; License information: https://untree.co/license/ --></p>
+						</div>
+
 					</div>
-					
 				</div>
 			</div>
 		</div>
-	</div>
+		<!-- 
+	<div id="overlayer"></div> -->
 
-	<div id="overlayer"></div>
-	<div class="loader">
-		<div class="spinner-border" role="status">
-			<span class="sr-only">Loading...</span>
-		</div>
-	</div>
 
+	</footer>
 	<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
-		<script src="{{asset('js/popper.min.js')}}"></script>
-		<script src="{{asset('js/bootstrap.min.js')}}"></script>
-		<script src="{{asset('js/owl.carousel.min.js')}}"></script>
-		<script src="{{asset('js/jquery.animateNumber.min.js')}}"></script>
-		<script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
-		<script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
-		<script src="{{asset('js/aos.js')}}"></script>
-		<script src="{{asset('js/moment.min.js')}}"></script>
+	<script src="{{asset('js/popper.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('js/jquery.animateNumber.min.js')}}"></script>
+	<script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
+	<script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+	<script src="{{asset('js/aos.js')}}"></script>
+	<script src="{{asset('js/moment.min.js')}}"></script>
 	<script src="{{asset('js/daterangepicker.js')}}"></script>
 
 	<script src="{{asset('js/typed.js')}}"></script>
 	<script>
 		$(function() {
 			var slides = $('.slides'),
-			images = slides.find('img');
+				images = slides.find('img');
 
 			images.each(function(i) {
 				$(this).attr('data-id', i + 1);
 			})
 
 			var typed = new Typed('.typed-words', {
-				strings: ["Casablanca.","Rabat.","Tanger.","..."],
+				strings: ["Casablanca.", "Rabat.", "Tanger.", "..."],
 				typeSpeed: 80,
 				backSpeed: 80,
 				backDelay: 4000,
@@ -209,7 +196,7 @@
 					arrayPos++;
 					console.log(arrayPos);
 					$('.slides img').removeClass('active');
-					$('.slides img[data-id="'+arrayPos+'"]').addClass('active');
+					$('.slides img[data-id="' + arrayPos + '"]').addClass('active');
 				}
 
 			});
