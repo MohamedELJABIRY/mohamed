@@ -24,10 +24,5 @@ class HomeController extends Controller
     public function index( ) //$data
     {
         return view('pages.home');
-
-        // $v=User::where('type','=',1);
-        // if($v)
-        //     return view('espace.company');
-        // return view('espace.user');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('contente')
-<div class="container " id="create">
+<div class="container " style="padding-top:50px">
     <div class="text-center pt-5">
         <h2>
             Poster un nouveau job :

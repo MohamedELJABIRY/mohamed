@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\company;
+use App\Models\Offre_condidat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class CompanyController extends Controller
 {
 
@@ -11,7 +14,6 @@ class CompanyController extends Controller
     public function index()
     {
         $company= company::all();
-        // $company=company::paginate(4);
         return view('offres.index', compact('company'));
     }
 
@@ -83,7 +85,6 @@ class CompanyController extends Controller
             $path='images/offres';
             $request->logo->move($path,$logo_name);
             $company-> logo = $logo_name;
-
         }
         
         $company-> nomCompany = $request->input('nomCompany');
@@ -105,5 +106,35 @@ class CompanyController extends Controller
         $company = company::find($id);
         $company->delete();
         return  redirect('/offre');
+    }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'q' => 'required',
+        ]);
+        $q=$request->q;
+        $filter= company::where('nomCompany','like','%'.$q.'%')
+                ->orWhere('domaine','like',"%".$q.'%')
+                ->orWhere('description','like',"%".$q.'%')
+                ->orWhere('nomPoste','like',"%".$q.'%')
+                ->get();
+        if($filter->count()){
+            return view('offres.index')->with([
+                'company' => $filter
+            ]); 
+        }else{
+            return redirect('/offre')->with([
+                'status' => "Pas du resultat"
+            ]);
+        }
+    }
+
+    public function nbrPostuler($id){
+        $company =DB::table('offre_condidats as o')
+        ->join('users as u', 'o.user_id', '=', 'u.id')
+        ->select('o.*', 'u.*')->where('company_id',$id)
+        ->get();
+        return view('offres.nbrPostuler',['data'=>$company]);
     }
 }

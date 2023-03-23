@@ -64,7 +64,7 @@
                              <div class="col-md-6">
                             <select class="form-control @error('type') is-invalid @enderror" value="{{ old('type') }}" name="type" aria-label="Default select example" required autocomplete="type" autofocus>
                                 <option >company</option>
-                                <option >user</option>
+                                <option >condidat</option>
                             </select>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">

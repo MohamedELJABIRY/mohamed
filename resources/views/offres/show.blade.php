@@ -27,13 +27,40 @@
                         <form action="{{ route('offre.destroy', $offre->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this item?')">Supprimer</button>
                         </form>
+                    @endif
+
+                    @if(!empty(Auth::user()) && Auth::user()->type==0)
+                        @if(Auth::user()->isSuiver($offre->id))
+                        <div class="col-2">
+                            <form action="{{ route('destroy') }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('delete')
+                                    <input hidden type="number"  name="id_o"  value="{{$offre->id}}"  >
+                                    <input hidden  type="number"  name="id_u"  value="{{Auth::user()->id}}"  >
+                                    <button type="submit"  class="btn btn-sm btn-outline-danger">Annuler</button>
+                            </form>
+                        </div>
+                        @else
+                        <div class="col-2">
+                            <form action="{{route('store')}}" method="post">
+                                @csrf
+                                <input hidden  type="number" name="id_of" value="{{$offre->id}}"  >
+                                <input  hidden type="number"  name="id_us"  value="{{Auth::user()->id}}" >
+                                <input  hidden type="text"  name="exist"  value="true" >
+                                <input type="submit"  id="btn"  value="Postuler" class=" btn-primary  btn btn-sm" >
+                            </form>
+                        </div>
+                        @endif
                     @endif
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 @endsection
+
+
+
+

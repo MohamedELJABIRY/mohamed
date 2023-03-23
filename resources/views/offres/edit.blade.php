@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('contente')
-<div class="container ">
-    <div id="create1" class="text-center pt-5  ">
+<div class="container pt-5">
+    <div class="text-center pt-5 " >
         <h2>
             Modifier votre Poste :
         </h2>
@@ -45,11 +45,11 @@
             </div>
             <div class=" mb-4">
                 <label for="logo" class="form-label">Logo de societé</label>
-                <img src="/images/offres/{{$offre->logo}}" alt="" width="100px" height="100px" >
-                <input class="form-input" type="file" id="logo"  name="logo" />
+                <input class="form-select " type="file" id="logo"  name="logo" /> 
                 @error('logo')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
+                <img src="/images/offres/{{$offre->logo}}" alt="" width="100px" height="100px" class="mx-5">
             </div>
             <div class="form-outline mb-4 row">
                 <div class="col">

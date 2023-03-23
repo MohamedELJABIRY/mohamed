@@ -1,8 +1,8 @@
 <!Doctype html>
-<html lang="en">
+<html lang="en" >
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" >
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Untree.co">
 	<link rel="shortcut icon" href="favicon.png">
@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="{{asset('css/style.css')}}">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	<title>Offres</title>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
 </head>
 
 <body>
@@ -41,6 +42,7 @@
 					<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
 						<li class="active"><a href="/">Home</a></li>
 						<li class="active"><a href="/offre">Offre d'emploi</a></li>
+						<li class="active"><a href="/condidat">Espace condidat</a></li>
 						<li><a href="/contact" class="active">Contact</a></li>
 						@guest
 						@if (Route::has('login'))
@@ -93,8 +95,8 @@
 						<div class="col-md-6 col-lg-4">
 							<div class="widget">
 								<h3 class="heading">About Offres</h3>
-								<p>Offres.com est le premier moteur
-									de recherche d’emploi au monde</p>
+								<p> E-Recrutement est le premier moteur
+									de recherche d'emploi au monde</p>
 							</div>
 							<div class="widget">
 								<ul class="list-unstyled social">
@@ -151,7 +153,7 @@
 						<div class="col-md-8 mb-3 mb-md-0 mx-auto">
 							<p>Copyright &copy;<script>
 									document.write(new Date().getFullYear());
-								</script>. Tous droits réservés. <!--&mdash; License information: https://untree.co/license/ --></p>
+								</script>. Tous droits réservés.</p>
 						</div>
 
 					</div>

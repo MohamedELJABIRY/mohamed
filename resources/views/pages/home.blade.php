@@ -5,7 +5,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-12">
 					<div class="intro-wrap">
-						<h1 class="mb-5"><span class="d-block">Trouvez votre offres d'emploi en E-Recrutement</span> dans <span class="typed-words"></span></h1>
+						<h1 class="mb-5"><span class="d-block txt">Trouvez votre offres d'emploi en E-Recrutement  dans <span class="typed-words"></span> </span> </h1>
 						<div class="row">
 							<div class="col-12"  >
 								<form class="form">
@@ -156,7 +156,7 @@
 				<div class="col-md-12">
 					<h2 class="mb-2 text-white">Vous permet d’explorer le meilleur. Contactez-nous maintenant</h2>
 					<p class="mb-4 lead text-white text-white-opacity">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, fugit?</p>
-					<p class="mb-0"><a href="/contact" class="btn btn-outline-white text-white btn-md font-weight-bold">Get in touch</a></p>
+					<p class="mb-0"><a href="/contact" class="btn btn-outline-white text-white btn-md font-weight-bold">On reste en contact</a></p>
 				</div>
 			</div>
 		</div>

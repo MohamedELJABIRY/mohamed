@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -54,6 +55,19 @@ class User extends Authenticatable
 
     public function company(){
         return $this->hasMany(company::class);
+    }
+    
+    public function condidat(){
+        return $this->hasMany(Condidat::class);
+    }
+
+    public function isSuiver($post){
+        $s=DB::table('offre_condidats')->where('user_id',$this->id)->where('company_id',$post)->exists();
+        if($s){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 
