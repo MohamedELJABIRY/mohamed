@@ -32,7 +32,7 @@
                         <div class="card mb-3" style="border-radius: .5rem;">
                             <a href="/condidat/{{$val->id}}" class="row g-0">
                                 <div class="col gradient-custome text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    <img src="/images/offres/{{$val->logo}}" alt="Avatar" class="img-fluid" style="width: 40%;border-radius:100%;height:100%;" />
+                                    <img src="{{asset('/images/offres/'.$val->logo)}}" alt="Avatar" class="img-fluid" style="width: 40%;border-radius:100%;height:100%;" />
                                 </div>
                                 <div class="col">
                                     <div class="card-body p-4">

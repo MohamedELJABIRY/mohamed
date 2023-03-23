@@ -132,9 +132,7 @@ class CondidatController extends Controller
         $filter= Condidat::where('domaine','like','%'.$q.'%')
                 ->orWhere('name','=',$q)
                 ->get();
-
-        
-
+                
         if($filter->count()){
             return view('condidat.index')->with([
                 'condidat' => $filter

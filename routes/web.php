@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CondidatController;
 use App\Http\Controllers\OffreCondidatController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -41,3 +42,4 @@ Route::get('/nbrPostuler/{id}',"App\Http\Controllers\CompanyController@nbrPostul
 
 
 
+Route::get('/test/{id}',"App\Http\Controllers\TestController@index")->name('test');

@@ -8,7 +8,7 @@
         <div class="card w-75 m-auto">
             <div class="row no-gutters">
                 <div class="col-sm-12 col-md-5">
-                    <img class="card-img" src="/images/offres/{{$offre->logo}}" alt="" style="height:95%">
+                    <img class="card-img" src="{{asset('/images/offres/'.$offre->logo)}}" alt="" style="height:95%">
                 </div>
                 <div class="col-sm-12 col-md-7">
                     <div class="card-body">

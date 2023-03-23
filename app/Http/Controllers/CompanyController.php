@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\company;
-use App\Models\Offre_condidat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

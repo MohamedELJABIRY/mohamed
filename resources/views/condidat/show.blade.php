@@ -44,6 +44,7 @@
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?')">suprimer</button>
                         </form>
                     @endif
+                    <a href="{{ route('test',$condidat->id) }}" class="btn btn-outline-info">voirs plus</a>
                 </div>
             </div>
         </div>

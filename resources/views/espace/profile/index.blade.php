@@ -41,7 +41,6 @@
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
                             <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address"  name="email" value="{{$user->email}}">
                         </div>
-                        <!-- <p>{{auth()->user()->type}}</p> -->
                         <button class="btn btn-primary" type="submit" onclick="return confirm('Vous êtes sûr ?')" >Enregistrer</button>
                     </form>
                 </div>
