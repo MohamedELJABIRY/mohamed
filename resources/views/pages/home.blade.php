@@ -8,19 +8,19 @@
 						<h1 class="mb-5"><span class="d-block txt">Trouvez votre offres d'emploi en E-Recrutement  dans <span class="typed-words"></span> </span> </h1>
 						<div class="row">
 							<div class="col-12"  >
-								<form class="form">
+								<form class="form" action="{{ route('search') }}" method="post">
+									@csrf
 									<div class="row mb-2">
 										<div class="col">
-											<select name="" id="" class="form-select custom-select">
-												<option value="">Villes</option>
-												<option value="">Casablanca</option>
-												<option value="">Tanger</option>
-												<option value="">Safi</option>
-												<option value="">Marrakech</option>
-												<option value="">Rabat</option>
-												<option value="">Agadir</option>
-												<option value="">Fès</option>
-												<option value="">El Jadidat</option>
+											<select name="search" id="" class="form-select custom-select">
+												<option value="Casablanca">Casablanca</option>
+												<option value="Tanger">Tanger</option>
+												<option value="Safi">Safi</option>
+												<option value="Marrakech">Marrakech</option>
+												<option value="Rabat">Rabat</option>
+												<option value="Agadir">Agadir</option>
+												<option value="Fès">Fès</option>
+												<option value="El Jadidat">El Jadidat</option>
 											</select>
 										</div>
 										<div class="col">
@@ -53,7 +53,10 @@
 			</div>
 		</div>
 	</div>
-
+	<hr class="border border-black">
+    
+	@yield('affiche')
+	
 
 	<div class="untree_co-section">
 		<div class="container">
@@ -111,32 +114,41 @@
 			</div>
 		</div>
 	</div>
+	@php 
+	$countO = DB::table('companies')->count();
 
+	$countC = DB::table('users')
+                ->where('type', '=', 0)->count('id');
+	$countCm = DB::table('users')
+                ->where('type', '=', 1)->count('id');
+
+
+	@endphp
 	<div class="untree_co-section count-numbers py-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
 					<div class="counter-wrap">
 						<div class="counter">
-							<span class="" data-number="9313">0</span>
+							<span class="" data-number="{{$countCm}}">0</span>
 						</div>
-						<span class="caption">No. of Travels</span>
+						<span class="caption">Company</span>
 					</div>
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
 					<div class="counter-wrap">
 						<div class="counter">
-							<span class="" data-number="8492">0</span>
+							<span class="" data-number="{{$countC}}">0</span>
 						</div>
-						<span class="caption">No. of Clients</span>
+						<span class="caption">Condidats</span>
 					</div>
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
 					<div class="counter-wrap">
 						<div class="counter">
-							<span class="" data-number="100">0</span>
+							<span class="" data-number="{{$countO}}">0</span>
 						</div>
-						<span class="caption">No. of Employees</span>
+						<span class="caption">Offre d'emploi</span>
 					</div>
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3">

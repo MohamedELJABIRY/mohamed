@@ -1,7 +1,8 @@
 @extends('layout.layout')
 @section('contente')
-<div class="container pt-5">
-    <div class="text-center pt-5 " >
+<div class="container">
+<div style="height: 100px"></div>
+    <div class="text-center" >
         <h2>
             Modifier votre Poste :
         </h2>

@@ -1,23 +1,23 @@
 @extends('layout.layout')
 @section('contente')
-<div class="container my-5">
-    <div id="create" class="text-center mx-auto pt-5 display-4 ">
-        <h2>Tous les company</h2>
-
+<div class="container ">
+    <div style="height: 100px"></div>
+    <div class="text-center mx-auto">
+        <h2>Tous les companies </h2>
     </div>
     <div class="row">
-
-        <form action="{{ route('search') }}" method="post" class="d-flex col">
-            @csrf
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-            </button>
-        </form>
         @if(!empty(Auth::user()) && Auth::user()->type==1)
         <div class="col-2">
             <a href="/offre/create" class="btn btn-primary btn-sm py-2">Poster un offre</a>
         </div>
+        @else
+        <form action="{{ route('search') }}" method="post" class="d-flex col">
+            @csrf
+            <input type="text" name="q" id="q" class="form-control mx-1">
+            <button type="submit" class="btn btn-primary">
+                Recherche
+            </button>
+        </form>
         @endif
 
     </div>
@@ -30,9 +30,9 @@
 
     <div class="row">
         @foreach($company as $item)
-        @php
-            $posts = DB::table('offre_condidats')->where('company_id',$item->id)->get();
-        @endphp
+            @php
+                $posts = DB::table('offre_condidats')->where('company_id',$item->id)->get();
+            @endphp
         <div class=" mt-3 col-sm-6 col-12">
             <div class="g-2">
                 <div class="col">
@@ -54,11 +54,10 @@
                             <a href="{{ route('nbrPostuler',['id'=>$item->id])}}">
                                 {{count($posts)}}
                                 @if(count($posts) > 1)
-                                <span>condidatures</span>
+                                    <span>condidatures</span>
                                 @else
-                                <span>condidature</span>
+                                    <span>condidature</span>
                                 @endif
-
                             </a>
                             @else
                             <span>

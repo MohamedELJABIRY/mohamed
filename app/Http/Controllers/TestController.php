@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($id){
-            $company = DB::table('condidats as c')
-            ->join('users as u', 'c.user_id', '=', 'u.id')
-            ->join('offre_condidats as o', 'u.id', '=', 'o.user_id')
-            ->join('companies as cp', 'o.company_id', '=', 'cp.id')
-            ->where('company_id',$id)
-            ->select('cp.company_id')
-            ->get();
-            dd($company);
+    public function index($id)
+    {
+        $company = DB::table('users as u')
+        ->select('cp.*')
+        ->join('offre_condidats as o', 'u.id', '=', 'o.user_id')
+        ->join('companies as cp', 'o.company_id', '=', 'cp.id')
+        ->where('o.user_id',$id)
+        ->get();
+        return view('condidat.offerPostule' ,  compact('company') ) ;
     }
 
     /**

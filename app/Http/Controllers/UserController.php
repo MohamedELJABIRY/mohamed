@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\company;
 
 class UserController extends Controller
 {
@@ -19,9 +20,11 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function Count()
     {
-        //
+        $count = DB::table('companies')->count();
+        // dd($count);
+        return view('pages.home',compact('count'));
     }
 
     /**
@@ -66,8 +69,18 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function search(Request $request)
     {
-        //
+        $search=$request->search;
+        // dd($search);
+        $filter= company::where('ville','like','%'.$search.'%')->get();
+                // ->orWhere('domaine','like',"%".$search.'%')
+                // ->get();
+        //    return (count($filter));
+        if($filter->count()){
+            return view('/pages/affiche',compact('filter'));
+        }else{
+            return redirect('/')->with(['status'=>'pas de resultat !']);
+        }
     }
 }

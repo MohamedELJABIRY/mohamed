@@ -17,6 +17,7 @@ class company extends Model
         'description',
         'logo' ,
         'user_id',
+        'ville',
     ];
     public function user(){
         return $this->belongsTo(User::class);

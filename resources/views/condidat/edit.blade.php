@@ -1,7 +1,8 @@
 @extends('layout.layout')
 @section('contente')
-<div class="container " style="padding-top:50px">
-    <div class="text-center pt-5">
+<div class="container ">
+    <div style="height: 100px"></div>
+    <div class="text-center">
         <h2>
             Postuler :
         </h2>

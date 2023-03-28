@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\company;
+use App\Models\Offre_condidat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -30,6 +33,7 @@ class CompanyController extends Controller
             'nbrPoste' => 'required',
             'nomPoste' => 'required',
             'description' => 'required',
+            'ville' => 'required',
             'logo' => 'required|mimes:jpg,png,jped,webp|max:5048',
         ]);
 
@@ -44,6 +48,7 @@ class CompanyController extends Controller
             "domaine" => $request->input('domaine'),
             "nbrPoste" => $request->input('nbrPoste'),
             "nomPoste" => $request->input('nomPoste'),
+            "ville" => $request->input('ville'),
             "description" => $request->input('description'),
             "logo" => $logo_name,
             "user_id" => auth()->user()->id
@@ -60,6 +65,7 @@ class CompanyController extends Controller
     
     public function edit($id)
     {
+        
         $offre=company::where('id',$id)->first();
         $logo=asset("images/".$offre->logo);
         return view('offres.edit',compact('offre','logo'));
@@ -74,6 +80,7 @@ class CompanyController extends Controller
             'nbrPoste' => 'required',
             'nomPoste' => 'required',
             'description' => 'required',
+            'ville' => 'required',
             'logo' => 'mimes:jpg,png,jped,webp|max:5048',
         ]);
 
@@ -91,12 +98,11 @@ class CompanyController extends Controller
         $company -> domaine = $request->input('domaine');
         $company->nbrPoste = $request->input('nbrPoste');
         $company-> nomPoste = $request->input('nomPoste');
+        $company-> ville = $request->input('ville');
         $company-> description = $request->input('description');
         
         $company->save();
-
         return redirect('/offre');
-
     }
 
     
@@ -115,7 +121,7 @@ class CompanyController extends Controller
         $q=$request->q;
         $filter= company::where('nomCompany','like','%'.$q.'%')
                 ->orWhere('domaine','like',"%".$q.'%')
-                ->orWhere('description','like',"%".$q.'%')
+                ->orWhere('ville','like',"%".$q.'%')
                 ->orWhere('nomPoste','like',"%".$q.'%')
                 ->get();
         if($filter->count()){
@@ -130,10 +136,23 @@ class CompanyController extends Controller
     }
 
     public function nbrPostuler($id){
+    //    
         $company =DB::table('offre_condidats as o')
         ->join('users as u', 'o.user_id', '=', 'u.id')
         ->select('o.*', 'u.*')->where('company_id',$id)
         ->get();
+        // $company=DB::table('offre_condidats',$id)->get();
+        // return $company;
+
+        // if(Auth::user()->id !== $company ){
+        //     abort(403);
+        // };
         return view('offres.nbrPostuler',['data'=>$company]);
+        
+    }
+
+    public function __construct()
+    {
+        // $this->middleware('company', ['only' => ['nbrPostuler']]);
     }
 }

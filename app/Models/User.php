@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function company(){
-        return $this->hasMany(company::class);
+        return $this->hasMany(company::class,'user_id');
     }
     
     public function condidat(){

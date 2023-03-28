@@ -1,8 +1,8 @@
 @extends('layout/layout')
 @section('contente')
 
-<div class="hero hero-inner">
-  <div class="container">
+<div class="" style="height:50px;">
+  <!-- <div class="container">
       <div class="row align-items-center">
       <div class="col-lg-6 mx-auto text-center">
           <div class="intro-wrap">
@@ -11,18 +11,17 @@
           </div>
       </div>
       </div>
-  </div>
+  </div> -->
 </div>
 
 <div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="">
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+        <div class="col-md-10">
+            <h3 class="justify-content-center d-flex my-3">Inscription</h3>
+                    <form method="POST" action="{{ route('register') }}" id="form" class="py-4 px-5" >
                         @csrf
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom complet') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom complete') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="nom et prénom" required autocomplete="name" autofocus>
@@ -36,16 +35,35 @@
                         </div>
                         <div class="row mb-3">
                             <label for="ville" class="col-md-4 col-form-label text-md-end">{{ __('ville') }}</label>
-
                             <div class="col-md-6">
-                                <input id="ville" type="text" class="form-control @error('ville') is-invalid @enderror" name="ville" value="{{ old('ville') }}" placeholder="ville" required autocomplete="ville" autofocus>
-
+                            <select name="ville" id="" class=" col custom-select" data-live-search="true" value="{{old('ville')}}" >
+                                <option value="Agadir">  Agadir</option>
+                                <option value="Casablanca"> Casablanca </option>
+                                <option value="Dakhla"> Dakhla</option>
+                                <option value="El Jadida"> El Jadida </option>
+                                <option value="Fès">Fès</option>
+                                <option value="Kenitra"> Kenitra</option>
+                                <option value="Laâyoune">Laâyoune</option>
+                                <option value="marrakech">Marrakech</option>
+                                <option value="Meknes">Meknes </option>
+                                <option value="Nador">Nador</option>
+                                <option value="Ouarzazate">Ouarzazate</option>
+                                <option value="Oujda"> Oujda</option>
+                                <option value="Rabat">Rabat  </option>
+                                <option value="safi">Safi </option>
+                                <option value="Salé">Salé </option>
+                                <option value="Taroudant">Taroudant</option>
+                                <option value="Téméra"> Téméra</option>
+                                <option value="Tétouan">Tétouan</option>
+                                <option value="Zagora">Zagora</option>
+                            </select>
+                            </div> 
                                 @error('ville')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            
                         </div>
                         <div class="row mb-3">
                             <label for="tel" class="col-md-4 col-form-label text-md-end">{{ __('numéro de téléphone') }}</label>
@@ -60,11 +78,13 @@
                         </div>
                         
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('type') }}</label>
+                            <label for="name" class="col-md-4 col-form-label ">{{ __('type') }}</label>
                              <div class="col-md-6">
-                            <select class="form-control @error('type') is-invalid @enderror" value="{{ old('type') }}" name="type" aria-label="Default select example" required autocomplete="type" autofocus>
-                                <option >company</option>
-                                <option >condidat</option>
+                            <select class=" @error('type') is-invalid @enderror px-3 col custom-select"  data-live-search="true" value="{{ old('type') }}" name="type" aria-label="Default select example" required autocomplete="type" autofocus>
+                                <optgroup>
+                                    <option >company</option>
+                                    <option >Condidat</option>
+                                </optgroup>
                             </select>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -84,7 +104,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="mot de passe" required autocomplete="new-password">
@@ -97,7 +117,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirmer mot de passe ') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="confirme mot de passe" required autocomplete="new-password">
@@ -105,14 +125,13 @@
                         </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary w-50">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+                
         </div>
     </div>
 </div>

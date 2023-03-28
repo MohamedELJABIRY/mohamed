@@ -14,14 +14,14 @@
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
+	<!-- <link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}"> -->
 	<link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
 	<link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
 	<link rel="stylesheet" href="{{asset('css/daterangepicker.css')}}">
-	<link rel="stylesheet" href="{{asset('css/aos.css')}}">
+	<!-- <link rel="stylesheet" href="{{asset('css/aos.css')}}"> -->
 	<link rel="stylesheet" href="{{asset('css/style.css')}}">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-	<title>Offres</title>
+	<title>E-Recrutement</title>
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
 </head>
 
@@ -45,18 +45,18 @@
 						<li class="active"><a href="/condidat">Espace condidat</a></li>
 						<li><a href="/contact" class="active">Contact</a></li>
 						@guest
-						@if (Route::has('login'))
-						<li class="">
-							<a href="{{ route('login') }}">Connexion</a>
-						</li>
-						@endif
-						@if (Route::has('register'))
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}">S'inscrire</a>
-						</li>
-
-						@endif
+							@if (Route::has('login'))
+							<li class="">
+								<a href="{{ route('login') }}">Connexion</a>
+							</li>
+							@endif
+							@if (Route::has('register'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">S'inscrire</a>
+							</li>
+							@endif
 						@else
+						
 						<li class="nav-item dropdown">
 							<a id="navbarDropdown" class="" href="/accueil" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 								<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">

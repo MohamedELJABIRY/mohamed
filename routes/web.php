@@ -40,6 +40,10 @@ Route::delete('destroy',"App\Http\Controllers\OffreCondidatController@destroy")-
 
 Route::get('/nbrPostuler/{id}',"App\Http\Controllers\CompanyController@nbrPostuler")->name('nbrPostuler');
 
+Route::get('/test/{id}',"App\Http\Controllers\TestController@index")->name('test')->middleware('offre');/**/
+Route::get('/count',"App\Http\Controllers\UserController@Count")->name('count');
+
+Route::post('/search', 'App\Http\Controllers\UserController@search')->name('search');
+Route::view('/affiche','pages/affiche');
 
 
-Route::get('/test/{id}',"App\Http\Controllers\TestController@index")->name('test');

@@ -86,6 +86,9 @@ class CondidatController extends Controller
             'specialite' => 'required',
             'competence' => 'required', 
             'domaine' => 'required',
+
+    
+
             // 'cv' => 'required|mimes:doc,docx,xlx,csv,pdf|max:5048',
             // 'logo' => 'required|mimes:jpg,png,jped,webp|max:5048',
         ]);
@@ -130,7 +133,7 @@ class CondidatController extends Controller
         ]);
         $q=$request->q;
         $filter= Condidat::where('domaine','like','%'.$q.'%')
-                ->orWhere('name','=',$q)
+                ->orWhere('specialite', 'like','%'.$q.'%' )
                 ->get();
                 
         if($filter->count()){

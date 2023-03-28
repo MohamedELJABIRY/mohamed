@@ -1,17 +1,8 @@
 @extends('layout/layout')
 @section('contente')
 
-<div class="hero hero-inner">
-  <div class="container">
-      <div class="row align-items-center">
-      <div class="col-lg-6 mx-auto text-center">
-          <div class="intro-wrap">
-          <h1 class="mb-0">Connexion</h1>
-          <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-          </div>
-      </div>
-      </div>
-  </div>
+<div class="" style="height: 70px;">
+  
 </div>
 
 <!--form -->
@@ -19,10 +10,10 @@
 <section class="login py-5 border-top-1">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-8 align-item-center">
-        <div class="border">
-          <h3 class="bg-gray p-4">connectez-vous</h3>
-          <form method="POST" action="{{ route('login') }}" >
+      <div class="col-lg-10 col-md-8 align-item-center">
+        <div class="w-75 m-auto">
+          <h3 class="bg-gray p-4 text-center" style="color:#5ea0ba ;">Connectez-vous</h3>
+          <form method="POST" action="{{ route('login') }}"  class="border border-info p-3 rounded">
             @csrf
             <fieldset class="p-4">
               <input id="email" type="email" class="form-control mb-3 @error('email') is-invalid @enderror"
@@ -39,11 +30,11 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-              <div class="loggedin-forgot">
+              <div class="">
                 <div class="row mb-1">
                     <div class="col-md-6 offset-md-2">
                         <div class="form-check-label">
-                            <input type="checkbox" name="remember" id="remember" {{old('remember') ? 'checked' : '' }}>
+                            <input type="checkbox" name="remember" id="remember" {{old('remember') ? 'checked' : '' }} class="">
                             <label class="form-check-label pt-3 pb-2" for="remember">
                                 {{ __('Garder moi connecter') }}
                             </label>
@@ -51,15 +42,15 @@
                     </div>
                 </div>
               </div>
-              <div class="row mb-0">
-                  <div class="col-md-8 offset-md-2">
-                      <button type="submit" class="btn btn-primary font-weight-bold mt-3">
+              <div class=" mb-0">
+                  <div class="row">
+                      <button type="submit" class="btn btn-primary font-weight-bold mt-3 col mx-3">
                           {{ __('Se connecter') }}
                       </button>
 
                       @if (Route::has('password.request'))
-                          <a class="mt-3 d-block text-primary" href="{{ route('password.request') }}">
-                              {{ __('mot de passe oulié?') }}
+                          <a class="mt-4 col text-center h6 " href="{{ route('password.request') }}" style="color:#5ea0ba ;">
+                              {{ __('mot de passe oublié ?') }}
                           </a>
                       @endif
                   </div>

@@ -18,6 +18,7 @@
                         <h3><i style="color:#6998AB ;" >{{$offre->nomPoste}}</i></h3>
                         <p>domaine : {{$offre->domaine}}</p>
                         <p>adresse : {{$offre->adresse}}</p>
+                        <p>ville : {{$offre->ville}}</p>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center w-100 p-2">
