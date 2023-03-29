@@ -50,8 +50,8 @@
                     <div class="card-footer row">
                         <small class="text-muted col-9">{{ $item->updated_at}}</small>
                         <small class="col-3">
-                            @if(Auth::user() && Auth::user()->type==1 && Auth::user()->id == $item->user_id)
-                            <a href="{{ route('nbrPostuler',['id'=>$item->id])}}">
+                            @if(Auth::Check() && Auth::user()->type==1 && Auth::user()->id == $item->id)
+                            <a href="/nbrPostuler/{{$item->id}}">
                                 {{count($posts)}}
                                 @if(count($posts) > 1)
                                     <span>condidatures</span>

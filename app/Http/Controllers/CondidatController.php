@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Condidat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CondidatController extends Controller
 {
@@ -13,7 +14,6 @@ class CondidatController extends Controller
     public function index()
     {
             $condidat=Condidat::all();
-            
             return view('condidat.index',compact('condidat'));
 
         }
@@ -43,7 +43,6 @@ class CondidatController extends Controller
         $logo_name=time().'.'.$logo_ex;  
         $path='images/offres';
         $request->logo->move($path,$logo_name);
-        
       
         $file_name = time().'.'.$request->cv->extension(); 
         $request->cv->move(public_path('/images/offres'), $file_name);
@@ -73,6 +72,9 @@ class CondidatController extends Controller
     public function edit($id)
     {
         $condidat=Condidat::where('id',$id)->first();
+        if ($condidat->user_id !== Auth::id()) {
+            abort(403);
+        }
         $logo=asset("images/condidats".$condidat->logo);
         return view('condidat.edit',compact('condidat','logo'));
     }
@@ -93,6 +95,9 @@ class CondidatController extends Controller
             // 'logo' => 'required|mimes:jpg,png,jped,webp|max:5048',
         ]);
         $condidat= Condidat::find($condidat);
+        if ($condidat->user_id !== Auth::id()) {
+            abort(403);
+        }
         if($request->hasFile('logo')){
             $logo_ex=$request->logo->getClientOriginalExtension();
             $logo_name=time().'.'.$logo_ex;  
@@ -122,6 +127,9 @@ class CondidatController extends Controller
     public function destroy($id)
     {
         $condidat = Condidat::find($id);
+        if ($condidat->user_id !== Auth::id()) {
+            abort(403);
+        }
         $condidat->delete();
         return  redirect('/condidat');
     }

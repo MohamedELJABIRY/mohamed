@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,10 @@ class Company
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next){
-        // dd($request->id);
-    
+        // dd(Auth::user()->id);
+        // if(Auth::user()->id && Auth::user()->id==$request->id){
+        //     return abort(403);
+        // }; 
+        // return  $next($request);
     }
 }

@@ -40,7 +40,7 @@
 				<div class="site-navigation">
 					<a href="/" class="logo m-0">E-Recrutement<span class="text-primary"></span></a>
 					<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-						<li class="active"><a href="/">Home</a></li>
+						<li class="active"><a href="/">Accueil</a></li>
 						<li class="active"><a href="/offre">Offre d'emploi</a></li>
 						<li class="active"><a href="/condidat">Espace condidat</a></li>
 						<li><a href="/contact" class="active">Contact</a></li>

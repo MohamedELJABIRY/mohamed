@@ -34,7 +34,6 @@ class OffreCondidatController extends Controller
         $cc=new Offre_condidat();
         $cc->user_id= $request -> input("id_us") ;
         $cc->company_id=  $request -> input("id_of") ;
-        $cc->exist =  $request -> input("exist") ;
         $cc->save();
         return back();
     }

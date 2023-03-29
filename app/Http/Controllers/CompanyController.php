@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\company;
 use App\Models\Offre_condidat;
-use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -27,9 +27,9 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nomCompany' => 'required',
-            'adresse' => 'required',
-            'domaine' => 'required',
+            'nomCompany' => 'required|max:250',
+            'adresse' => 'required|max:250',
+            'domaine' => 'required|max:250',
             'nbrPoste' => 'required',
             'nomPoste' => 'required',
             'description' => 'required',
@@ -65,8 +65,10 @@ class CompanyController extends Controller
     
     public function edit($id)
     {
-        
         $offre=company::where('id',$id)->first();
+        if ($offre->user_id !== Auth::id()) {
+            abort(403);
+        };
         $logo=asset("images/".$offre->logo);
         return view('offres.edit',compact('offre','logo'));
     }
@@ -102,13 +104,18 @@ class CompanyController extends Controller
         $company-> description = $request->input('description');
         
         $company->save();
+
         return redirect('/offre');
+
     }
 
     
     public function destroy($id)
     {
         $company = company::find($id);
+        if ($company->user_id !== Auth::id()) {
+            abort(403);
+        }
         $company->delete();
         return  redirect('/offre');
     }
@@ -136,23 +143,22 @@ class CompanyController extends Controller
     }
 
     public function nbrPostuler($id){
-    //    
+    // return $id;
+
+    $userc=DB::table('companies')->where('id',$id)->first();
+    if( !empty($userc)){
+    if ($userc->user_id !== Auth::id()) {
+        abort(403);
+    }
+    }else{
+        abort(403);
+    };
         $company =DB::table('offre_condidats as o')
         ->join('users as u', 'o.user_id', '=', 'u.id')
-        ->select('o.*', 'u.*')->where('company_id',$id)
+        ->select('o.*', 'u.*')->where('o.company_id',$id)
         ->get();
-        // $company=DB::table('offre_condidats',$id)->get();
-        // return $company;
-
-        // if(Auth::user()->id !== $company ){
-        //     abort(403);
-        // };
         return view('offres.nbrPostuler',['data'=>$company]);
-        
     }
 
-    public function __construct()
-    {
-        // $this->middleware('company', ['only' => ['nbrPostuler']]);
-    }
+    
 }

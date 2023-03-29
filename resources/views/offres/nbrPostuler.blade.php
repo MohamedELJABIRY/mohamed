@@ -21,5 +21,10 @@
       @endforeach
     </tbody>
   </table>
+
+  <hr class="my-3">
+    <a href="/offre" class="btn" style="background-color: #6998AB; border-radius:0px;float:right">
+        Retour
+    </a>
 </div>
 @endsection

@@ -49,7 +49,7 @@
                                 @csrf
                                 <input hidden  type="number" name="id_of" value="{{$offre->id}}"  >
                                 <input  hidden type="number"  name="id_us"  value="{{Auth::user()->id}}" >
-                                <input  hidden type="text"  name="exist"  value="true" >
+                                <!-- <input  hidden type="text"  name="exist"  value="true" > -->
                                 <input type="submit"  id="btn"  value="Postuler" class=" btn-primary  btn btn-sm" >
                             </form>
                         </div>

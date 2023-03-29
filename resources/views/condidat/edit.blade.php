@@ -8,7 +8,7 @@
         </h2>
     </div>
     <section class="vh-100 gradient-custom" style="margin-bottom: 20vh;">
-        <form class="w-sm-75 w-75 m-auto" action="/condidat" method="POST" enctype="multipart/form-data">
+        <form class="w-sm-75 w-75 m-auto border border-2 p-5 border-info" action="/condidat" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-outline mb-4 row">
                 <div class="col">
@@ -49,8 +49,10 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary w-50 btn-block mb-4 mx-auto">modifier</button>
-            <a href="/condidat" class="btn btn-primary w-50 btn-block mb-4 mx-auto">return</a>
+            <div class="row">
+                <button type="submit" class="btn btn-primary btn-sm mx-5 my-2 col">modifier</button>
+                <a href="/condidat" class="btn btn-primary btn-sm mx-5 my-2 col">Annuler</a>
+            </div>
         </form>
     </section>
 </div>

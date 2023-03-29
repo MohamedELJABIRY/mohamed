@@ -5,11 +5,13 @@
     <div class="mt-2 text-center mx-auto display-4 ">
         <h2> Listes des condidats :</h2>
     </div>
+    
     <hr>
     <div class="row d-flex justify-content-center align-items-end">
         @if(!empty(Auth::user()) && Auth::user()->type==0)
-        <div class="col-2">
-            <a href="/condidat/create" class="btn btn-primary  py-2">Poster</a>
+        <div class="row">
+            <a href="{{ route('test',Auth::user()->id) }}" class="px-5 btn btn-sm btn-light">listes des Offres Postule </a>
+            <a href="/condidat/create" class="px-5 btn btn-sm btn-secondary mx-3">Poster annance</a>
         </div>
         @else
         <form action="{{ route('searchC') }}" method="post" class="d-flex col">
