@@ -34,11 +34,14 @@
 											<option value="Zagora">Zagora</option>
 										</select>
 									</div>
-									
 									<div class="col">
 										<input type="text" class="form-control" name="daterange">
 									</div>
-									
+									<div class="col">
+										<input type="text" class="form-control" placeholder="Métie">
+									</div>
+									<div class="col">
+										<input type="text" class="form-control" placeholder="Fonctionalitée">
 									</div>
 								</div>
 								<div class="row align-items-center">
@@ -62,6 +65,7 @@
 	</div>
 </div>
 <hr class="border border-black">
+<hr class="border border-black">
 @php 
 	$posts = DB::table('companies')->get();
 @endphp
@@ -70,6 +74,7 @@
 	<h2>{{$item->nomCompany}}</h2>
 	<img src="{{asset('/images/offres/'.$item->logo)}}" alt="">
 @endforeach
+<hr>
 <div class="untree_co-section">
 	<div class="container">
 		<div class="row mb-5 justify-content-center">
@@ -87,7 +92,7 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-sm-12 col-lg-8 feature-1-wrap d-md-flex flex-md-column order-lg-1">
+			<div class="col-12 col-sm-6 col-lg-8 feature-1-wrap d-md-flex flex-md-column order-lg-1">
 
 				<div class="feature-1 d-md-flex">
 					<div class="align-self-center">
@@ -106,14 +111,14 @@
 				</div>
 
 			</div>
+
 		</div>
 	</div>
 </div>
+
 @php
 	$countO = DB::table('companies')->count();
-
 	$countC = DB::table('users')->where('type', '=', 0)->count('id');
-
 	$countCm = DB::table('users')->where('type', '=', 1)->count('id');
 @endphp
 <div class="untree_co-section count-numbers py-5">
