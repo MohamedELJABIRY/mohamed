@@ -3,7 +3,7 @@
 <div class="container ">
     <div style="height: 100px"></div>
     <div class="text-center mx-auto">
-        <h2>Tous les companies </h2>
+        <h2>Tous les entreprises </h2>
     </div>
     <div class="row">
         @if(!empty(Auth::user()) && Auth::user()->type==1)
@@ -11,7 +11,7 @@
             <a href="/offre/create" class="btn btn-primary btn-sm py-2">Poster un offre</a>
         </div>
         @else
-        <form action="{{ route('search') }}" method="post" class="d-flex col">
+        <form action="{{ route('recherche') }}" method="post" class="d-flex col">
             @csrf
             <input type="text" name="q" id="q" class="form-control mx-1">
             <button type="submit" class="btn btn-primary">
@@ -23,7 +23,7 @@
     </div>
     <hr class="border border-black">
     @if(session('status'))
-    <div class="alert alert-info">
+    <div class="alert alert-info my-3">
         {{session('status')}}
     </div>
     @endif
@@ -50,7 +50,7 @@
                     <div class="card-footer row">
                         <small class="text-muted col-9">{{ $item->updated_at}}</small>
                         <small class="col-3">
-                            @if(Auth::Check() && Auth::user()->type==1 && Auth::user()->id == $item->id)
+                            @if(Auth::Check() && Auth::user()->type==1 )
                             <a href="/nbrPostuler/{{$item->id}}">
                                 {{count($posts)}}
                                 @if(count($posts) > 1)

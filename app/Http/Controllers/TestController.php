@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\company;
 class TestController extends Controller
 {
     /**
@@ -64,8 +65,17 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function search(Request $request)
     {
-        //
+        $select=$request->select;
+        $inp=$request->inp;
+        dd($request);
+        $company=company::where('ville','like','%'.$select.'%')
+                ->orWhere('domaine','like',"%".$inp.'%')
+                ->get();
+
+                if($company->count()){
+                    return view('/pages/home',compact('company')); 
+                }
     }
 }

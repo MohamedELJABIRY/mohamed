@@ -684,9 +684,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 30px;
-    height: 2px;
-    background: #1A374D; }
+    width: 70px;
+    height: 3px;
+    background: #5ea0ba; }
   .section-title.text-center:before {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -1499,3 +1499,8 @@ body{margin-top:20px;
       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       /* background: linear-gradient(to right bottom, #6998AB, rgba(253, 160, 133, 1))
       } */
+
+      #cardh5{
+        /* color: #5ea0ba;
+        background-color: #6998AB; */
+      }

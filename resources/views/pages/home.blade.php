@@ -8,11 +8,11 @@
 					<h1 class="mb-5"><span class="d-block txt">Trouvez votre offres d'emploi en E-Recrutement dans <span class="typed-words"></span> </span> </h1>
 					<div class="row">
 						<div class="col-12">
-							<form class="form" action="{{ route('search') }}" method="post">
+							<form class="form" action="" method="">
 								@csrf
 								<div class="row mb-2">
 									<div class="col">
-										<select name="search" id="" class="form-select custom-select">
+										<select name="select" id="select" class="form-select custom-select">
 											<option value="Agadir"> Agadir</option>
 											<option value="Casablanca"> Casablanca </option>
 											<option value="Dakhla"> Dakhla</option>
@@ -35,25 +35,18 @@
 										</select>
 									</div>
 									<div class="col">
-										<input type="text" class="form-control" name="daterange">
+										<input type="text" name="inp" class="form-control" name="domaine" placeholder="Domaine">
 									</div>
-									<div class="col">
+									<!-- <div class="col">
 										<input type="text" class="form-control" placeholder="Métie">
 									</div>
 									<div class="col">
 										<input type="text" class="form-control" placeholder="Fonctionalitée">
-									</div>
+									</div> -->
 								</div>
 								<div class="row align-items-center">
-									<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+									<div class="col-sm-12 col-md-6 mb-3 my-3 mb-lg-0 col-lg-4">
 										<input type="submit" class="btn btn-primary btn-block" value="Recherche">
-									</div>
-									<div class="col-lg-8">
-										<label class="control control--checkbox mt-3">
-											<span class="caption">Sauvegarder cette recherche</span>
-											<input type="checkbox" checked="checked" />
-											<div class="control__indicator"></div>
-										</label>
 									</div>
 								</div>
 							</form>
@@ -65,16 +58,36 @@
 	</div>
 </div>
 <hr class="border border-black">
-<hr class="border border-black">
-@php 
+@php
 	$posts = DB::table('companies')->get();
+	$posts=DB::table('companies')->paginate(8);
 @endphp
-
-@foreach($posts as $item)
-	<h2>{{$item->nomCompany}}</h2>
-	<img src="{{asset('/images/offres/'.$item->logo)}}" alt="">
-@endforeach
+<div class="container">
+	<div class="row mb-5 justify-content-center">
+		<div class="col-lg-6 text-center">
+			<h2 class="section-title text-center mb-3">Nos Offres</h2>
+		</div>
+	</div>
+	<div class="row">
+		@foreach($posts as $item)
+		<div class="card col-5 col-sm-3 mx-2 my-2 p-0" style="width: 18rem;font-size:10px;
+        background-color: #6998AB;color:white">
+			<div class="card-body">
+				<h5 class="card-title" id="cardh5">{{$item->nomCompany}}</h5>
+				<p class="card-text pb-auto">{{$item->description}}</p>
+				<a href="" class="card-link">{{$item->domaine}}</a>
+				<a href="" class="card-link">{{$item->ville}}</a>
+			</div>
+		</div>
+		@endforeach
+	</div>
+	<div class="d-flex justify-content-center">
+		{!! $posts->links('vendor/pagination/bootstrap-4') !!}
+	</div>
+</div>
 <hr>
+
+
 <div class="untree_co-section">
 	<div class="container">
 		<div class="row mb-5 justify-content-center">
@@ -96,17 +109,20 @@
 
 				<div class="feature-1 d-md-flex">
 					<div class="align-self-center">
-						<span class="flaticon-house display-4 text-primary"></span>
-						<h3>Beautiful Condo</h3>
-						<p class="mb-0">Even the all-powerful Pointing has no control about the blind texts.</p>
+						<h3>Candidature en ligne</h3>
+						<p class="mb-0"> Les candidats peuvent postuler en ligne directement sur le site web,
+							en remplissant un formulaire de candidature
+							et en soumettant leur CV et leur lettre de motivation.</p>
 					</div>
 				</div>
 
 				<div class="feature-1 ">
 					<div class="align-self-center">
 						<span class=" display-4 text-primary"></span>
-						<h3>Restaurants & Cafe</h3>
-						<p class="mb-0">Even the all-powerful Pointing has no control about the blind texts.</p>
+						<h3>Publication d'offres d'emploi</h3>
+						<p class="mb-0">Le company peut publier une annonce détaillant les
+							qualifications requises pour le poste, les responsabilités,
+							les avantages et les conditions d'emploi.</p>
 					</div>
 				</div>
 
@@ -123,13 +139,18 @@
 @endphp
 <div class="untree_co-section count-numbers py-5">
 	<div class="container">
+		<div class="row mb-5 justify-content-center">
+			<div class="col-lg-6 text-center">
+				<h2 class="section-title text-center mb-3">Statistique</h2>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-6 col-sm-6 col-md-6 col-lg-3">
 				<div class="counter-wrap">
 					<div class="counter">
 						<span class="" data-number="{{$countCm}}">0</span>
 					</div>
-					<span class="caption">Company</span>
+					<span class="caption">Entreprises</span>
 				</div>
 			</div>
 			<div class="col-6 col-sm-6 col-md-6 col-lg-3">
@@ -145,7 +166,7 @@
 					<div class="counter">
 						<span class="" data-number="{{$countO}}">0</span>
 					</div>
-					<span class="caption">Offre d'emploi</span>
+					<span class="caption">Les offre d'emploi</span>
 				</div>
 			</div>
 			<div class="col-6 col-sm-6 col-md-6 col-lg-3">

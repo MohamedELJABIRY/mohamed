@@ -126,11 +126,11 @@ class CompanyController extends Controller
             'q' => 'required',
         ]);
         $q=$request->q;
-        $filter= company::where('nomCompany','like','%'.$q.'%')
-                ->orWhere('domaine','like',"%".$q.'%')
-                ->orWhere('ville','like',"%".$q.'%')
-                ->orWhere('nomPoste','like',"%".$q.'%')
+        $filter= company::where('ville','like','%'.$q.'%')
+                ->orWhere('nomCompany', 'like','%'.$q.'%' )
+                ->orWhere('domaine', 'like','%'.$q.'%' )
                 ->get();
+                
         if($filter->count()){
             return view('offres.index')->with([
                 'company' => $filter
@@ -160,5 +160,4 @@ class CompanyController extends Controller
         return view('offres.nbrPostuler',['data'=>$company]);
     }
 
-    
 }

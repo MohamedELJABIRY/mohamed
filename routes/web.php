@@ -30,7 +30,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('/profil',UserController::class);
 Route::resource('/offre',CompanyController::class);
-Route::post('/search', 'App\Http\Controllers\CompanyController@search')->name('search');
+Route::post('/recherche', 'App\Http\Controllers\CompanyController@search')->name('recherche');
 
 Route::resource('/condidat',CondidatController::class);
 Route::post('/searchC', 'App\Http\Controllers\CondidatController@searchC')->name('searchC');
@@ -47,6 +47,4 @@ Route::get('/count',"App\Http\Controllers\UserController@Count")->name('count');
 Route::post('/search', 'App\Http\Controllers\UserController@search')->name('search');
 Route::view('/affiche','pages/affiche');
 
-Route::resource('/recherche',SearchController::class);
-Route::get('/comp', 'App\Http\Controllers\SearchController@index');
-// 
+// Route::get('/sear',"App\Http\Controllers\TestController@search")->name('sear');

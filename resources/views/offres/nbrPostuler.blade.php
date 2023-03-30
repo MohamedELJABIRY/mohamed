@@ -14,7 +14,7 @@
     <tbody>
       @foreach($data as $item)
       <tr style="font-weight:bold;">
-        <td>{{$item->name}}</td>
+        <td><a href="//condidat/{{$item->id}}">{{$item->name}}</a></td>
         <td>{{$item->email}}</td>
         <td>{{$item->ville}}</td>
       </tr>

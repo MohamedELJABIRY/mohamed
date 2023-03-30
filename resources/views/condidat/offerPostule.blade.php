@@ -17,7 +17,7 @@
             @foreach($company as $item)
             <tr>
                 <td scope="row">
-                    <img src="/images/offres/{{$item->logo}}" alt="" width="90px" height="90px">
+                    <a href="/offre/{{$item->nomCompany}}"><img src="/images/offres/{{$item->logo}}" alt="" width="90px" height="90px"></a>
                 </td>
                 <td>{{$item->nomCompany}}</td>
                 <td>{{$item->adresse}}</td>
