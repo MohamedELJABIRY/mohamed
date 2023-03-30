@@ -43,7 +43,7 @@
 						<li class="active"><a href="/">Accueil</a></li>
 						<li class="active"><a href="/offre">Offre d'emploi</a></li>
 						<li class="active"><a href="/condidat">Espace condidat</a></li>
-						<li><a href="/contact" class="active">Contact</a></li>
+						<!-- <li><a href="/contact" class="active">Contact</a></li> -->
 						@guest
 							@if (Route::has('login'))
 							<li class="">
@@ -115,27 +115,21 @@
 							<div class="widget">
 								<h3 class="heading">Pages</h3>
 								<ul class="links list-unstyled">
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">About</a></li>
+									<li><a href="#">Accueil</a></li>
+									<li><a href="#">Offre d'emploi</a></li>
+									<li><a href="#">Espace condidat</a></li>
 									<li><a href="#">Contact</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-2">
-							<div class="widget">
-								<h3 class="heading">Resources</h3>
-								<ul class="links list-unstyled">
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">About</a></li>
-									<li><a href="#">Contact</a></li>
-								</ul>
-							</div>
+					
 						</div>
 						<div class="col-md-6 col-lg-4">
 							<div class="widget">
 								<h3 class="heading">Contact</h3>
 								<ul class="list-unstyled quick-info links">
-									<li class="email"><a href="#">Offres@gmail.com</a></li>
+									<li class="email"><a href="#">E_Recrutement@gmail.com</a></li>
 									<li class="phone"><a href="#">+212 622 212 381</a></li>
 									<li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
 								</ul>

@@ -4,11 +4,11 @@
 <div style="height: 100px"></div>
     <div class="text-center" >
         <h2>
-            Modifier votre Poste :
+            Modifier votre Offre :
         </h2>
     </div>
-    <section class="vh-100 gradient-custom" style="margin-bottom: 20vh;">
-        <form class="w-sm-75 w-75 m-auto" action="/offre/{{$offre->id}}" method="POST" enctype="multipart/form-data">
+    <section class=" gradient-custom" style="margin-bottom: 20vh;">
+        <form class="w-sm-75 w-75 m-auto border border-info p-5 rounded" action="/offre/{{$offre->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="form-outline mb-4 row">
@@ -28,6 +28,7 @@
                     @enderror
                 </div>
             </div>
+            <hr>
             <div class="form-outline mb-4 row">
                 <div class="col">
                     <input type="number" id="nbrPoste" class="form-control" name="nbrPoste"  value="{{$offre->nbrPoste}}" />
@@ -44,14 +45,16 @@
                     @enderror
                 </div>
             </div>
+            <hr>
             <div class=" mb-4">
                 <label for="logo" class="form-label">Logo de societé</label>
                 <input class="form-select " type="file" id="logo"  name="logo" /> 
                 @error('logo')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
-                <img src="/images/offres/{{$offre->logo}}" alt="" width="100px" height="100px" class="mx-5">
+                <img src="/images/offres/{{$offre->logo}}" alt="" width="100px" height="100px" class="mx-5 my-2 rounded">
             </div>
+            <hr>
             <div class="form-outline mb-4 row">
                 <div class="col">
                     <input type="text" id="nomPoste" class="form-control" name="nomPoste" value="{{$offre->nomPoste}}"  />
@@ -61,6 +64,7 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <hr>
             <div class="form-outline mb-2">
                 <textarea class="form-control" id="description" rows="4" name="description"  >{{$offre->description}}</textarea>
                 <label class="form-label" for="description">Déscription</label>
@@ -68,8 +72,13 @@
                 @error('description')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-            <button type="submit" class="btn btn-primary w-50 btn-block mb-4 mx-auto">Modifier</button>
+                <hr>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary btn-sm mx-5 my-2 col">Modifier</button>
+                    <a href="/offre" class="btn btn-primary btn-sm mx-5 my-2 col">Annuler</a>
+                </div>
         </form>
+        
     </section>
 </div>
 @endsection

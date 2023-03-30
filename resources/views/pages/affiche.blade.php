@@ -3,7 +3,6 @@
 <div class="container row m-auto">
 
     @foreach($filter as $item)
-
     <div class=" mt-3 col-sm-6 col-12">
         <div class="g-2">
             <div class="col">
@@ -24,14 +23,11 @@
     </div>
     @endforeach
 
-
     @if(session('status'))
     <div class="alert alert-info">
         {{session('status')}}
     </div>
     @endif
-
-    
 
 </div>
 @endsection

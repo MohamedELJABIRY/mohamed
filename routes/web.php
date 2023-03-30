@@ -6,7 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CondidatController;
 use App\Http\Controllers\OffreCondidatController;
-use App\Http\Controllers\TestController;
+// use App\Http\Controllers\TestController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -46,4 +47,6 @@ Route::get('/count',"App\Http\Controllers\UserController@Count")->name('count');
 Route::post('/search', 'App\Http\Controllers\UserController@search')->name('search');
 Route::view('/affiche','pages/affiche');
 
-
+Route::resource('/recherche',SearchController::class);
+Route::get('/comp', 'App\Http\Controllers\SearchController@index');
+// 
