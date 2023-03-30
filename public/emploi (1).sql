@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 29 mars 2023 à 12:27
+-- Généré le : jeu. 30 mars 2023 à 14:18
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -44,15 +44,16 @@ CREATE TABLE IF NOT EXISTS `companies` (
   `ville` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `companies_user_id_foreign` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `companies`
 --
 
 INSERT INTO `companies` (`id`, `nomCompany`, `adresse`, `domaine`, `nomPoste`, `nbrPoste`, `description`, `logo`, `user_id`, `remember_token`, `created_at`, `updated_at`, `ville`) VALUES
-(1, 'company 1', 'safi', 'l\'informatique', 'developper mobile', 4, 'تطوير الويب ‏ هو مصطلح واسع للاعمال المشاركة في تطوير المواقع الالكترونية للشبكة العنكبوتية العالمية للانترنت أو للإنترانت, تطوير الويب يتراوح ما بين تطوير صفحة ثابتة بسيطة بنص عادي إلى تطبيقات الإنترنت المعقدة والأعمال التجارية الإلكترونية وخدمات الشبكة الاجتماعية', '1680086628.png', 1, NULL, '2023-03-29 10:43:48', '2023-03-29 10:43:48', 'Ouarzazate'),
-(2, 'company 2', 'casablanca', 'Services', 'developper mobile', 3, 'تطوير الويب ‏ هو مصطلح واسع للاعمال المشاركة في تطوير المواقع الالكترونية للشبكة العنكبوتية العالمية للانترنت أو للإنترانت, تطوير الويب يتراوح ما بين تطوير صفحة ثابتة بسيطة بنص عادي إلى تطبيقات الإنترنت المعقدة والأعمال التجارية الإلكترونية وخدمات الشبكة الاجتماعية', '1680086747.png', 2, NULL, '2023-03-29 10:45:47', '2023-03-29 10:45:47', 'El Jadida');
+(4, 'Electro-services', 'marrakech v', 'Services', 'Technicien', 4, 'تطوير الويب ‏ هو مصطلح واسع للاعمال المشاركة في تطوير المواقع الالكترونية للشبكة العنكبوتية العالمية للانترنت أو للإنترانت, تطوير الويب يتراوح ما بين تطوير صفحة ثابتة بسيطة بنص عادي إلى تطبيقات الإنترنت المعقدة والأعمال التجارية الإلكترونية وخدمات الشبكة الاجتماعية.', '1680098309.jpg', 1, NULL, '2023-03-29 13:58:29', '2023-03-29 13:58:29', 'Agadir'),
+(3, 'company 2', 'casablanca rue-2 massira', 'Digital', 'Developper mobile', 22, 'تطوير الويب ‏ هو مصطلح واسع للاعمال المشاركة في تطوير المواقع الالكترونية للشبكة العنكبوتية العالمية للانترنت أو للإنترانت, تطوير الويب يتراوح ما بين تطوير صفحة ثابتة بسيطة بنص عادي إلى تطبيقات الإنترنت المعقدة والأعمال التجارية الإلكترونية وخدمات الشبكة الاجتماعية.', '1680098015.jpg', 2, NULL, '2023-03-29 13:53:35', '2023-03-29 13:53:35', 'Laâyoune'),
+(5, 'casa event', 'marrakech', 'Services', 'developper mobile', 3, 'تطوير الويب ‏ هو مصطلح واسع للاعمال المشاركة في تطوير المواقع الالكترونية للشبكة العنكبوتية العالمية للانترنت أو للإنترانت, تطوير الويب يتراوح ما بين تطوير صفحة ثابتة بسيطة بنص عادي إلى تطبيقات الإنترنت المعقدة والأعمال التجارية الإلكترونية وخدمات الشبكة الاجتماعية', '1680180694.jpg', 2, NULL, '2023-03-30 12:51:34', '2023-03-30 12:51:34', 'Ouarzazate');
 
 -- --------------------------------------------------------
 
@@ -74,15 +75,14 @@ CREATE TABLE IF NOT EXISTS `condidats` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `condidats_user_id_foreign` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `condidats`
 --
 
 INSERT INTO `condidats` (`id`, `specialite`, `competence`, `logo`, `domaine`, `cv`, `user_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'developpeur web', 'developpuer web ,disinger', '1680088633.png', 'l\'informatique', '1680088633.pdf', 3, NULL, '2023-03-29 11:17:13', '2023-03-29 11:17:13'),
-(2, 'developpeur web', 'wwwwwwwwwwwww\r\nqqqqqqqqqqq', '1680092621.png', 'l\'informatique', '1680092621.pdf', 4, NULL, '2023-03-29 12:23:41', '2023-03-29 12:23:41');
+(3, 'developpeur web', 'wwwwwwwwwwwww\r\nqqqqqqqqqqq', '1680097733.jpg', 'l\'informatique', '1680097733.pdf', 4, NULL, '2023-03-29 13:48:53', '2023-03-29 13:48:53');
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,9 @@ CREATE TABLE IF NOT EXISTS `offre_condidats` (
 INSERT INTO `offre_condidats` (`user_id`, `company_id`, `created_at`, `updated_at`) VALUES
 (3, 1, '2023-03-29 10:54:56', '2023-03-29 10:54:56'),
 (4, 2, '2023-03-29 12:13:13', '2023-03-29 12:13:13'),
-(4, 1, '2023-03-29 12:13:19', '2023-03-29 12:13:19');
+(4, 1, '2023-03-29 12:13:19', '2023-03-29 12:13:19'),
+(3, 3, '2023-03-29 13:59:57', '2023-03-29 13:59:57'),
+(3, 4, '2023-03-30 12:47:25', '2023-03-30 12:47:25');
 
 -- --------------------------------------------------------
 
